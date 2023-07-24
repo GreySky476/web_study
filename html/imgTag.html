@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片标签</title>
+</head>
+<body>
+    <!-- 能够插入的图片类型：jpg(jpeg)、gif、png、bmp 等，不能插入的图片类型：psd、ai 等 -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWgVb586usm823uFOMnmhOtGiRXptB0rzsH2Ym1NcAWw&s" />
+    <!-- 图片的路径表达，相对路径和绝对路径，.表示当前路径，..表示上一层目录 -->
+    <img src="img/724a141e9ffd4a519b9d582151f1c54d.png" />
+    <!-- width、height 属性 -->
+    <img width="288" height="188" src="img/724a141e9ffd4a519b9d582151f1c54d.png" />
+    <!-- Alt 属性
+            alt：当图片不可用（不可显示）的时候，代替图片显示的内容。 -->
+    <img src="img/" width="288" height="188" alt="风景" />
+    <p>
+        <img width="288" height="188" src="img/724a141e9ffd4a519b9d582151f1c54d.png" title="风景动漫图" />
+        <!-- align 属性
+                图片的 align 属性：图片和周围文字的相对位置。
+                bottom（默认）
+                center
+                top
+                left
+                right -->
+        风景动漫<img align="left" width="288" height="188" src="img/724a141e9ffd4a519b9d582151f1c54d.png" title="风景动漫图" />图
+    </p>
+</body>
+</html>
