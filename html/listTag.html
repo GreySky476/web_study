@@ -108,21 +108,65 @@
                 valign="center": 一行的内容垂直居中显示，取值：top、middle、bottom
             td 单元格
             属性
-                align: 内容的横向对齐方式。
+                align: 内容的横向对齐方式。属性值可以填：left right center。建议使用 css 统一解决
+                valign: 内容的纵向对齐方式。属性：top middle bottom
+                width: 绝对值或者相对值（%）
+                height: 单元格的高度
+                bgcolor: 设置这个单元格的颜色
+                background: 设置这个单元格的背景图片
+            单元格的合并
+                单元格属性
+                    colspan: 横向合并。colspan="2" 表示当前单元格在水平方向上要占据两个单元格的位置
+                    rowspan: 纵向合并。rowspan="2" 表示当前单元格在垂直方向上要占据两个单元格的位置
+            th 加粗的单元格。相当于 td + b
+            caption 表格标题。使用时和 tr 并列
+                align: left、right、center、top、bottom
+            thead、tbody、tfoot
+                1、如果使用了，表格顺序的展示会按照 thead->tbody->tfoot 的顺序展示，如果没有设置则按照代码顺序展示
+                2、当表格内容非常大时，使用这几个标签可以让数据边获取边显示，不写则必须等待数据全部获取完成才能展示
             -->
-    <table>
+    <table border="1">
+        <caption>合并表格</caption>
         <tr>
             <td>GreySky476</td>
             <td>24</td>
-            <td>男</td>
-            <td>深圳</td>
+            <td rowspan="4">男</td>
+            <td rowspan="4" align="center">深圳</td>
         </tr>
         <tr>
-            <td>aw</td>
-            <td>25</td>
-            <td>男</td>
-            <td>深圳</td>
+            <td rowspan="2">aw</td>
+            <td rowspan="2">25</td>
         </tr>
+        <tr>
+        </tr>
+        <tr>
+            <td>GreySky476</td>
+            <td>24</td>
+        </tr>
+    </table>
+    <table border="1">
+        <caption>表格顺序</caption>
+        <tfoot>
+            <tr>
+                <td>GreySky476</td>
+                <td>24</td>
+                <td>深圳</td>
+            </tr>
+        </tfoot>
+        <thead>
+            <tr>
+                <td>aw</td>
+                <td>25</td>
+                <td>深圳</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ad</td>
+                <td>24</td>
+                <td>深圳</td>
+            </tr>
+        </tbody>
     </table>
 </body>
 </html>

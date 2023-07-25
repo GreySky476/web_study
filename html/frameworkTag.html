@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>框架标签</title>
+</head>
+<frameset rows="20%,*" bordercolor="#00FF00">
+    <!-- 
+        框架标签
+            注意：框架标签不能放在 body 标签中，因为 body 标签代表的只是一个页面，而框架标签代表的是多个页面。即 body 和 frameset 只能二选一
+        框架的集合用 frameset 表示，然后在 frameset 集合里放入一个一个的 frame
+        -- frameset 和 frame 已经从 web 标准中删除，建议使用 frame 代替
+        框架的集合
+            一个框架的集合可以包含多个框架
+            属性
+                rows: 水平分割，将框架分为上下部分。
+                    1、绝对值写法：rows="200,*"，* 代表剩余的，这里包含了两个框架，上面的占 200 个像素，下面的框架占剩下的部分
+                    2、相对值写法：rows="30%,*"，上面的框架占 30%，下面的占用 70%
+                    想分成多个框架就在里面使用逗号隔开即可
+                cols: 垂直分割，将框架分为左右部分
+                    1、绝对值写法：cols="200,*"，左边占用 200 像素，右边占用剩余的像素
+                    2、相对值写法：cols="30%,*"，左边占 30%，右边占用 70%
+        frame
+            属性
+                scrolling: 是否需要滚动条，默认为 true，no 为不需要
+                noresize: 不可以改变框架大小，默认情况下框架的边界是可以拖动的，使用这个将固定框架大小
+                bordercolor: 给框架边框定义颜色。在 frameset 中同样适用，在 google 浏览器中（frameset 有效，frame 无效）
+                frameorder="1" 或 frameorder="0"：显示或隐藏边框线
+                name: 框架名字
+                
+    -->
+    <frame src="frameworkTag/top.html" scrolling="no" noresize>
+
+    </frame>
+    <frameset cols="30%,*">
+        <frame src="left.html">
+
+        </frame>
+        <frame src="frameworkTag/right.html" name="右下角框架">
+
+        </frame>
+    </frameset>
+</frameset>
+</html>
