@@ -162,8 +162,35 @@
         多媒体标签
         声明：多媒体包含：音频、视频、Flash。网页上的多媒体基本都是 Flash 格式。
         .wmv、.dat、.mob、.rmvb 等视频格式，在网页上不能直接播放，需要安装第三方的插件，才可以播放。
+        不同的浏览器，播放上述视频格式，所使用的插件参数不一样
+        上述格式视频一般文件较大，不利于网络下载播放。
+        一般情况下，是将其它的视频格式，转成Flash来在网页上播放。
+        转换软件：格式工厂等。 Flash格式的视频兼容性非常好，Flash格式的文件很小。
 
-     -->
+        bgsound 标签：播放背景音乐
+        属性
+            src: 音乐文件的路径
+            loop: 属性值代表播放次数，-1 代表循环播放
+            google 浏览器中无法播放
+
+        embed 标签
+            应用 Netscape 浏览器，不是 w3c 规范
+            src: 多媒体文件的路径
+            loop: 属性值代表播放次数，-1 代表循环播放
+            autostart: 打开网页时，禁止自动播放。默认是 true。
+            volume: 设置默认的音量大小，测试发现这个值好像不起作用哦。
+            width: 指 Flash 文件的宽度
+            height: 指 Flash 文件的高度
+            quality: 指 Flash 的播放质量
+            pluginspage: 如果指定的 Flash 插件不存在，则从 pluginspage 指定的地方进行下载
+            type: 指定 Flash 的文件格式类型
+            wmode: 指 Flash 的背景是否可以透明，取值 transparent 是透明的
+
+        HTML5 新增了 <video> 标签
+    -->
+     <bgsound src="music/小鲤鱼历险记-动漫原声.128.mp3"></bgsound>
+     <br>
+     <embed src="music/小鲤鱼历险记-动漫原声.128.mp3" />
 
 </body>
 </html>
