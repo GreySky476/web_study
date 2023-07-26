@@ -191,6 +191,36 @@
      <bgsound src="music/小鲤鱼历险记-动漫原声.128.mp3"></bgsound>
      <br>
      <embed src="music/小鲤鱼历险记-动漫原声.128.mp3" />
+     <br>
+     <!-- 
+        object: 播放多媒体文件（音频、视频等）
+        主要用于 IE 浏览器，属于 W3C 规范
+        属性
+            classid: 指定 Flash 插件的 ID 号，一般存在于注册表中
+            codebase: 如果 Flash 插件不存在，则从 codebase 指定的地址下载
+            <param>: 标签的主要作用：住址具体的详细参数
+        在网页中插入 Flash 时，为了兼容多种浏览器，需要将 object 标签和 embed 标签一起使用，使用顺序是 object 包裹 embed 标签
+        Google 浏览器不支持
+      -->
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="778" height="202">
+        <param name="movie" value="img/724a141e9ffd4a519b9d582151f1c54d.png"/>
+        <param name="quality" value="high" />
+        <param name="wmode" value="transparent" />
+        <embed src="img/724a141e9ffd4a519b9d582151f1c54d.png" width="778" height="202" quality="high" pluginspace="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" >
+        </embed>
+      </object>
+      <br>
+    <!-- 
+        marquee: 滚动字母标签
+        属性
+            direction: 移动的目标方向，可以是：left(默认值，从右往左)、right（从左往右）、up(从下往上)、down（从上往下）
+            behavior: 行为方式。slide(只移动一次)、scroll(循环移动，默认值)、alternate(循环移动)。
+                scroll、alternate 都为循环移动，区别在当 direction="right" 情况下，scroll 表示从左往右、从左往右，从左往右、alternate 表示从左往右、从右往左、从左往右，其它情况同理
+            scrollamount: 移动的速度
+            loop: 循环多少圈
+            scrolldelay: 移动一次休息多长时间，单位毫秒
+     -->
+     <marquee behavior="alternate" direction="up" width="300" height="200" bgcolor="#8c5dc1" scrollamount="30">GreySky</marquee>
 
 </body>
 </html>
