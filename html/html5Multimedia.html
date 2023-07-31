@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多媒体标签</title>
+</head>
+<body>
+    <!--
+        html5 之前，网页播放音频/视频的通用方法是利用 flash 来播放。但大多数情况下，并非所有用户的浏览器都安装了 flash 插件，由此使得音频、视频播放处理变得非常复杂
+        并且移动设备并不支持 flash 插件
+
+        音频
+            audio：解决音频播放问题
+                autoplay: 自动播放
+                controls：控制条
+                loop: 循环播放
+                preload: 预加载，同时设置 autoplay 是，此属性将失效
+            处理兼容性问题：
+                不同的浏览器可支持的播放格式是不一样的。
+                兼容写法，为了多浏览器支持
+     -->
+     <audio src="music/小鲤鱼历险记-动漫原声.128.mp3" autoplay controls></audio>
+     <!-- 兼容写法：识别不出音频就弹出『抱歉』 -->
+     <audio controls loop>
+        <source src="music/小鲤鱼历险记-动漫原声.128.mp3"/>
+        <source src="music/小鲤鱼历险记-动漫原声.128.ogg" />
+        <source src="music/小鲤鱼历险记-动漫原声.128.wav" />
+        抱歉，您的浏览器暂不支持此音频格式
+     </audio>
+
+     <!--
+        视频多媒体
+            video
+                autoplay: 自动播放
+                controls: 控制条
+                loop: 循环播放
+                preload: 预加载
+                width: 设置窗口宽度
+                height: 设置播放窗口的高度
+            处理兼容性问题：
+                不同的浏览器可支持的播放格式是不一样的。
+                兼容写法，为了多浏览器支持
+      -->
+      <video src="video/" controls autoplay />
+      <video controls autoplay>
+        <source src="video/">
+        <source src="video/">
+        <source src="video/">
+        抱歉，不支持此视频
+      </video>
+</body>
+</html>

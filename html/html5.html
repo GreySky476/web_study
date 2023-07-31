@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5详解</title>
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <ul class="nav"></ul>
+
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #f7f7f7;
+            }
+
+            form {
+                max-width: 500px;
+                width: 100%;
+                margin: 32px auto 0;
+                font-size: 16px;
+            }
+
+            label {
+                display: block;
+                margin: 10px 0;
+            }
+
+            input {
+                width: 100%;
+                height: 25px;
+                margin-top: 2px;
+                display: block;
+            }
+
+        </style>
+    </header>
+    <!-- 主体部分 -->
+    <div class="main">
+        <!-- 文章 -->
+        <article></article>
+        <!-- 侧边栏 -->
+        <aside></aside>
+    </div>
+
+    <!-- 底部 -->
+    <footer>
+
+    </footer>
+    <!--
+        HTML5 语义标签
+        section: 表示区块
+        article: 文章
+        header: 页眉
+        footer: 页脚
+        nav: 导航
+        aside: 侧边栏
+        figure: 媒介内容分组
+        mark: 标记
+        progress: 进度
+        time: 日期
+        本质语义标签与 div、span 没有区别，只是具有表意性，使用时除了在 html 结构需要注意外使用和其它普通标签没有区别，比如 <div class="nav"> 相当于 <nav>
+
+
+     -->
+     <!--
+        在 IE8 中，不支持 H5 和 CSS3，需要引入 html4shiv.js 文件
+        条件注释
+            l: less 更小
+            t: than 比
+            e: equal 等于
+            g: great 更大
+        测试 IE 浏览器兼容时，可以使用软件 ietest 模拟 IE6-IE11
+        当浏览器不能解析新标签时，除了引入第三方 JS 库还可以通过 document.createElement('tagName') 将新标签全部创建一遍
+        -->
+    <!--[if lte ie 8]>
+        <script src="html5shiv.min.js"></script>
+    <![endif]-->
+    <!--
+        表单类型
+        email 只能输入 email，自带验证功能
+        tel 手机号码
+        url 只能输入 url 格式
+        number 只能输入数字
+        search 搜索框
+        range 滑动条
+        color 拾色器
+        time 时间
+        date 日期
+        datetime 时间日期
+        month 月份
+        week 星期
+     -->
+     <form action="">
+        <fieldset>
+            <legend>表单类型</legend>
+            <label for="">
+                email: <input type="email" name="email" required>
+            </label>
+
+            <label for="">
+                color: <input type="color" name="color">
+            </label>
+
+            <label for="">
+                url: <input type="url" name="url">
+            </label>
+
+            <label for="">
+                number: <input type="number" step="3" name="number">
+            </label>
+
+            <label for="">
+                range: <input type="range" name="range" value="100">
+            </label>
+
+            <label for="">
+                search: <input type="search" name="search">
+            </label>
+
+            <label for="">
+                tel: <input type="tel" name="tel">
+            </label>
+
+            <label for="">
+                time: <input type="time" name="time">
+            </label>
+
+            <label for="">
+                date: <input type="date" name="date">
+            </label>
+
+            <label for="">
+                datetime: <input type="datetime">
+            </label>
+
+            <label for="">
+                week: <input type="week" name="week">
+            </label>
+
+            <label for="">
+                month: <input type="month" name="month">
+            </label>
+
+            <label for="">
+                datetime-local: <input type="datetime-local" name="datetime-local">
+            </label>
+            <input type="submit">
+        </fieldset>
+        <!--
+            fieldset 标签将表单的内容进行打包，代表一组
+            legend 标签则是 fieldset 里的元素定义标题
+        -->
+     </form>
+     <!--
+        表单元素（标签）
+            datalist 数据列表
+            下方代码，input 的 list 属性和 datalist 进行了绑定
+     -->
+     <input type="text" list="myData">
+     <datalist id="myData">
+        <option>本科</option>
+        <option>研究生</option>
+        <option>不明</option>
+     </datalist>
+
+     <!--
+        keygen 元素
+            keygen 元素的作用是提供一种验证用户的可靠方法。
+            keygen 元素是密钥对生成器（key-pair generator）。当提交表单时，会生成两个键：一个公钥，一个私钥。
+            私钥存储于客户端，公钥则被发送到服务器。公钥可用于之后验证用户的客户端证书
+      -->
+      <keygen></keygen>
+
+      <!--
+        meter：度量器
+            low: 低于该值后警告
+            high: 高于该值后警告
+            value: 当前值
+            max: 最大值
+            min: 最小值
+       -->
+       <meter value="70" min="0" max="100" low="60" high="80" />
+
+
+
+</body>
+</html>
