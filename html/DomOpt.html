@@ -6,6 +6,35 @@
     <title>Dom 操作</title>
 </head>
 <body>
+    <div class="box" title="盒子" data-my-name="smyhvae" data-content="我是一个div">div</div>
+    <script>
+        /* 获取元素
+            document.querySelector("selector") 通过 CSS 选择器获取符合条件的第一个元素。
+            document.querySelectorAll("selector") 通过 CSS 选择器获取符合条件的所有元素，以类数组形式存在。
+        */
+        /*
+        类名操作
+            Node.classList.add("class") 添加 class
+            Node.classList.remove("class") 移除 class
+            Node.classList.toggle("class") 切换 class，有则移除，无则添加
+            Node.classList.contains("class") 检测是否存在 class
+        */
+        /*
+        自定义属性
+            js 里可以通过 box1.index=100; box1.title 来自定义属性和获取属性
+            H5 可以直接在标签里添加自定义属性，但必须以 data- 开头
+        */
+        var box = document.querySelector('.box');
 
+        // 自定义的属性 需要通过 dateset[]方式来获取
+        console.log(box.dataset['content']); // 打印结果：我是一个 div
+        console.log(box.dataset["myName"]); // 打印结果：smyhvae
+
+        // 设置自定义属性的值
+        var num = 100;
+        num.index = 10;
+        box.index = 100;
+        box.dataset["content"] = "aaaa";
+    </script>
 </body>
 </html>
