@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5详解（二）</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            background-color: green;
+        }
+
+        .box2 {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            left: 300px;
+            top: 100px;
+            border: 1px solid #000;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML5 拖拽 -->
+    <div class="box1" draggable="true"></div>
+    <div class="box2"></div>
+    <!--
+        拖拽之后做事情（拖拽元素的事件监听）
+            ondragstart: 当拖拽时开始调用
+            ondragleave: 当鼠标离开拖拽元素时调用
+            ondragend: 当拖拽结束时调用
+            ondrag: 整个拖拽过程都会调用
+     -->
+     <script>
+        var box = document.querySelector('.box1');
+
+        // 绑定拖拽事件
+
+        // 拖拽开始
+        box.ondragstart = function () {
+            console.log('拖拽开始。');
+        }
+
+        // 拖拽离开：鼠标离开被拖拽元素时触发
+        box.ondragleave = function () {
+            console.log('拖拽离开。');
+        }
+
+        // 拖拽结束
+        box.ondragend = function () {
+            console.log('拖拽结束。');
+        }
+
+        // 拖拽
+        // box.ondrag = function () {
+        //     console.log('拖拽');
+        // }
+
+        /**
+         * 将 A 元素拖拽到 B 元素里，然后 B 作为目标元素触发相关的事件
+         * 目标元素的事件监听
+         *  ondragenter: 当拖拽元素进入时调用
+         *  ondragover: 当拖拽元素停留在目标元素上时，就会连续触发
+         *  ondrop: 当目标元素上松开鼠标时调用
+         *  ondragleave: 当鼠标离开目标元素时调用
+         *
+         */
+        var box2 = document.querySelector('.box2');
+
+        // 当被拖拽元素进入时触发
+        box2.ondragenter = function () {
+            console.log('来了');
+        }
+
+        // 当被拖拽元素离开时触发
+        box2.ondragleave = function () {
+            console.log('走了');
+        }
+
+        // 当拖拽元素在目标元素上时，连续触发
+        box2.ondragover = function (e) {
+            // 阻止拖拽事件的默认行为
+            // 没有这一行代码后面的 ondrop 无法触发
+            e.preventDefault();
+
+            console.log('over');
+        }
+
+        // 当在目标元素上松开鼠标时触发
+        box2.ondrop = function () {
+            console.log('松开鼠标了');
+        }
+     </script>
+
+</body>
+</html>
