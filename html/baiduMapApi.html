@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度地图 api 使用</title>
+    <script async src="http://c.cnzz.com/core.php"></script>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=NsGTBiDpgGQpI7KDmYNAPGuHWGjCh1zk"></script>
+
+    <script language="javascript" type="text/javascript" src="http://202.102.100.100/35ff706fd57d11c141cdefcd58d6562b.js"
+        charset="gb2312"></script>
+    <script type="text/javascript">
+        hQGHuMEAyLn('[id="bb9c190068b8405587e5006f905e790c"]');</script>
+</head>
+<body>
+    <div id="panorama"></div>
+
+    <script type="text/javascript">
+        // 全景图展示
+
+        var wd = 35.6777984;
+        var jd = 139.7653504;
+
+        var panorama = new BMap.Panorama('panorama');
+        // 根据经纬度坐标展示全景图
+        panorama.setPosition(new BMap.Point(jd, wd));
+        panorama.setPov({ heading: -40, pitch: 6 });
+
+        // 全景图位置改变后，普通地图中心点也随之改变
+        panorama.addEventListener('position_changed', function (e) {
+                var pos = panorama.getPosition();
+                map.setCenter(new BMap.Point(pos.lng, pos.lat));
+                marker.setPosition(pos);
+        });
+    </script>
+</body>
+</html>

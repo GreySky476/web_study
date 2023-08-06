@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其它标签</title>
+</head>
+<body>
+    <!--
+        历史
+            在 html5 中可以通过 window.history 操作访问历史状态，让一个页面可以有多个历史状态
+        地理定位
+            在 html 中增加了获取用户地理信息的 api，这样使得我们可以基于用户位置开发互联网应用，即 LBS
+     -->
+     <script>
+        // 前进
+        window.history.forward();
+        // 后退
+        window.history.back();
+        // 刷新
+        window.history.go();
+        // n = 1 表示前进，-1 后退，0 刷新，如果移动的位置超出了访问历史的边界，会静默失败，不会报错
+        var n = 0;
+        window.history.go(n);
+        // 放入历史中的状态数据
+        history.pushState;
+
+        /** 获取地理信息的方式
+         *      1、IP 地址
+         *      2、三维坐标
+         *          GPS
+         *              美国：全球定位系统，简称 GPS
+         *              俄罗斯：全球卫星导航系统，简称 GLONASS
+         *              欧盟：伽俐略卫星导航系统，简称 GALILEO
+         *              中国：北斗卫星导航系统，简称 BDS
+         *              日本：准天顶卫星系统，简称 QZSS
+         *              印度：印度区域卫星导航系统，简称 IRNSS
+         *              以上两个中国都能使用
+         *          Wi-Fi 定位：仅限室内
+         *          手机信号：通过运营商的信号塔定位
+         *      3、用户自定义数据
+         *          对不同获取方式的优缺点进行比较，浏览器会自动以最后的方式去获取用户地理信息
+         *   隐私
+         *      html5 规范提供了一套保护用户隐私的机制，必须先得到用户明确许可，才能获取用户信息
+         *   API 详解
+         *      navigator.getCurrentPosition(successCallback, errorCallback, options) 获取当前地理信息
+         *      navigator.watchPosition(successCallback, errorCallback, options) 重复获取当前地理信息
+         *      当成功获取地理信息后，会调用 succssCallback，并返回一个包含位置信息的对象 position：（Coords 即坐标）
+         *          position.coords.latitude 纬度
+         *          position.coords.longitude 经度
+         *      当获取地理信息失败后，会调用errorCallback，并返回错误信息error。
+         *      可选参数 options 对象可以调整位置信息数据收集方式
+         */
+        // 兼容处理
+        if (navigator.geolocation) {
+            // 如果支持就获取用户地理信息
+            // 传入获取用户位置成功、失败的回调函数
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        } else {
+            console.log('抱歉，您的浏览器支持地理定位');
+        }
+
+        function successCallback(position) {
+            // 获取用户当前的经纬度
+            // coords 坐标
+            // 纬度 latitude
+            var wd = position.coords.latitude;
+            // 经度 longitude
+            var jd = position.coords.longitude;
+
+            console.log('获取用户位置成功');
+            console.log(wd + '-------' + jd);
+        }
+
+        function errorCallback(error) {
+            console.log(error);
+            console.log('获取用户位置失败');
+        }
+     </script>
+</body>
+</html>
