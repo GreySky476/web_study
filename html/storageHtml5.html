@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web 存储</title>
+</head>
+<body>
+    <!--
+        传统方式使用 document.cookie 来存储，但是其存储大小只有 4k，其次解析过于复杂，开发不便
+        H5 规范使用其它方式
+            window.sessionStorage 会话存储
+                保存在内存中
+                生命周期为关闭浏览器窗口。就是当窗口关闭时数据销毁
+                在同一个窗口下数据可以共享
+            window.localStorage 本地存储
+                有可能保存在浏览器内存里，有可能在硬盘里
+                永久生效，除非手动删除
+                可以多窗口共享
+        web 存储的特性
+            设置读取方便
+            容量较大，sessionStorage 约 5M、localStorage 约 20M
+            只能存储字符串，可以将对象 JSON.stringify() 编码后存储
+        常见 API
+            设置 setItem(key, value);
+            读取 getItem(key);
+            根据键，删除存储内容 removeItem(key);
+            清空所有存储内容 clear();
+            根据索引值来获取存储内容 key(n);
+     -->
+     <input type="text" />
+     <button>session存储</button>
+     <button>session获取</button>
+     <button>session更新</button>
+     <button>session删除</button>
+     <button>session清除</button>
+     <div>
+        <button class="btn">local存储</button>
+        <button class="btn">local获取</button>
+        <button class="btn">local更新</button>
+        <button class="btn">local删除</button>
+        <button class="btn">local清除</button>
+     </div>
+
+     <script>
+        var txt = document.querySelector('input');
+
+        var btns = document.querySelectorAll('button');
+
+        // session 存储数据
+        btns[0].onclick = function () {
+            window.sessionStorage.setItem('username', txt.value);
+            window.sessionStorage.setItem('pwd', '123456');
+            window.sessionStorage.setItem('age', 18);
+        }
+
+        // session 获取数据
+        btns[1].onclick = function () {
+            txt.value = window.sessionStorage.getItem('username');
+        }
+
+        // session 更新数据
+        btns[2].onclick = function () {
+            window.sessionStorage.setItem('username', txt.value);
+        }
+
+        // session 删除数据
+        btns[3].onclick = function () {
+            window.sessionStorage.removeItem('username');
+        }
+
+        // session 清空数据
+        btns[4].onclick = function () {
+            window.sessionStorage.clear();
+        }
+
+        var localBtns = document.querySelectorAll('.btn');
+        // local 存储数据
+        localBtns[0].onclick = function () {
+            window.localStorage.setItem('username', txt.value);
+            window.localStorage.setItem('pwd', '123456');
+            window.localStorage.setItem('age', 18);
+        }
+
+        // local 获取数据
+        localBtns[1].onclick = function () {
+            txt.value = window.localStorage.getItem('username');
+        }
+
+        // local 更新数据
+        localBtns[2].onclick = function () {
+            window.localStorage.setItem('username', txt.value);
+        }
+
+        // local 删除数据
+        localBtns[3].onclick = function () {
+            window.localStorage.removeItem('username');
+        }
+
+        // local 清空数据
+        localBtns[4].onclick = function () {
+            window.localStorage.clear();
+        }
+     </script>
+</body>
+</html>
