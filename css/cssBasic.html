@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 基础</title>
+
+    <style type="text/css">
+        label {
+            /* 字体大小是周围文字的两倍 */
+            font-size: 200%;
+        }
+        /*
+        css 字体属性
+            字体
+            行高
+            颜色
+            大小
+            背景
+            边框
+            滚动
+            换行
+            装饰器
+         */
+        p {
+            /* 字体大小 */
+            font-size: 20px;
+            /*
+                行高
+                行高可以使用百分比，表示字号的多少百分比
+                一般都是大于 100%，行高一定要大于字号
+                比如 font: 12px/200% "宋体" 等价于 font: 12px/24px "宋体"
+             */
+            line-height: 50px;
+            /*  字体类型
+                不是所有字体都能用，需要看用户电脑中是否包含该字体，在 windows 中，没有就会变成宋体
+                为了防止用户电脑里没有微软雅黑字体，可以使用英文逗号分割提供备选字体
+                当要对英文采用其它字体时，需要放到最前面，有些外国人设计的字体不会针对中文，这时侯英文就会使用指定的字体，而中文就会使用备选字体
+                如果中文放前面，就会导致都用中文里的英文
+                所有的中文字体都有英语别名，具体百度
+            */
+            font-family: "幼圆", "宋体";
+            /* italic: 斜体、normal: 正常 */
+            font-style: italic;
+            /*
+                粗体
+                在设置字体是否加粗是，属性值既可以填写 normal、bold，也可以填写 100~900 的数字，normal = 400，bold = 700
+             */
+            font-weight: bold;
+            /* 字体属性：小写变大写 */
+            font-variant: small-caps;
+            /*
+                字体可以使用连写来简化代码 font: 加粗 字号/行高 字体
+                400：代表 normal(正常)，700 是 bold（加粗）
+                font 属性至少要有字号和字体，否则连写不生效
+             */
+            font: 400 14px/24px "幼圆";
+            /*
+                p 标签的高度 = 显示的行 * line-height
+                上面设置字体大小为 20px，行高为 50px，则 padding = (50px - 20px) / 2
+                行高、字号一般都是偶数
+             */
+            /* 小技巧，如果一段文本只有一行，想让它居中可以直接设置 行高 = 盒子高，这样就能保证垂直居中 */
+            /* 多行居中需要计算盒子的 padding，计算方式为：(盒子高度 - 总行高（行高 * 显示行数）) / 2 = padding */
+            /*
+                vertical-align:
+                可用于指定行内元素（inline）、行内块元素（inline-block）、表格的单元格（table-cell）的垂直对齐方式。
+                主要是用于图片、表格、文本的对齐
+                    middle：指定行内元素的垂直对齐
+             */
+             vertical-align: middle;
+
+            /*
+                文本属性
+                letter-spacing: 0.5cm; 单个字母之间的间距
+                word-spacing: 1cm; 单词之间的间距
+                text-decoration: none; 字体修饰：none 去掉下划线、underline 下划线、line-through 中划线、overline 上划线
+                color: red 字体颜色
+                text-align: center; 在当前容器中的对齐方式。属性值可以是：left、right、center（在当前容器中间）
+                text-transform: lowercase; 单词大小写。属性值可以是：uppercase（单词大写）、lowercase（单词小写）、capitalize（每个单词的首字母大写）
+            */
+        }
+        ul li {
+            /*
+                列表属性
+                list-style 将上面多个属性写在一个声明中
+            */
+            list-style-image: url(img/2015-10-03-css-18.png);
+            margin-left: 80px; /*公有属性*/
+        }
+        /*
+            overflow 属性，超出范围的内容处理
+            visible: 默认值，多余的内容不剪切也不添加滚动条，会全部显示出来
+            hidden: 不显示超过对象尺寸的内容
+            auto: 如果内容不超出，则不显示滚动条，反之亦然
+            scroll: win 平台下，无论内容是否超出，总是显示滚动条，mac 平台下于 auto 相同
+        */
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #00cc66;
+            margin-left: 100px;
+            float: left;
+        }
+        #div1 {
+            overflow: auto; /* 超出的部分让浏览器自行解决 */
+        }
+        #div2 {
+            overflow: visible; /* 超出的部分会显示出来 */
+        }
+        #div3 {
+            overflow: hidden; /* 超出的部分将剪切掉 */
+        }
+        /*导航栏
+            鼠标的属性 cursor
+            auto：默认值。浏览器根据当前情况自动确定鼠标光标类型
+            pointer：IE6.0，竖起一只手指的光标。就像移动到超链接的那样
+            hand: 和 pointer 作用一样，竖起一只手指的光标
+            all-scroll :　 IE6.0 有上下左右四个箭头，中间有一个圆点的光标。用于标示页面可以向上下左右任何方向滚动。
+            col-resize :　 IE6.0 有左右两个箭头，中间由竖线分隔开的光标。用于标示项目或标题栏可以被水平改变尺寸。
+            crosshair :　 简单的十字线光标。
+            default :　 客户端平台的默认光标。通常是一个箭头。
+            hand :　 竖起一只手指的手形光标。就像通常用户将光标移到超链接上时那样。
+            move :　 十字箭头光标。用于标示对象可被移动。
+            help :　 带有问号标记的箭头。用于标示有帮助信息存在。
+            no-drop :　 IE6.0 带有一个被斜线贯穿的圆圈的手形光标。用于标示被拖起的对象不允许在光标的当前位置被放下。
+            not-allowed :　 IE6.0 禁止标记(一个被斜线贯穿的圆圈)光标。用于标示请求的操作不允许被执行。
+            progress :　 IE6.0 带有沙漏标记的箭头光标。用于标示一个进程正在后台运行。
+            row-resize :　 IE6.0 有上下两个箭头，中间由横线分隔开的光标。用于标示项目或标题栏可以被垂直改变尺寸。
+            text :　 用于标示可编辑的水平文本的光标。通常是大写字母 I 的形状。
+            vertical-text :　 IE6.0 用于标示可编辑的垂直文本的光标。通常是大写字母 I 旋转90度的形状。
+            wait :　 用于标示程序忙用户需要等待的光标。通常是沙漏或手表的形状。
+            *-resize :　 用于标示对象可被改变尺寸方向的箭头光标。
+            url ( url ) :　 IE6.0 用户自定义光标。使用绝对或相对 url 地址指定光标文件(后缀为 .cur 或者 .ani )。
+        */
+        p:hover {
+            cursor: pointer;
+        }
+        /*
+            滤镜
+            例子，让图片变成灰度图的效果
+            IE 有效果，google 没效果
+            <img src="img/2015-10-03-css-18.png" style="filter:gray()">
+        */
+    </style>
+</head>
+<body>
+    <div>你好，<label>清风徐来，水波不兴</label>世界。</div>
+    <p>
+        你好世界你好世界你好世界你好世界你好世界你好世界你好世界
+        你好世界你好世界你好世界你好世界你好世界你好世界你好世界
+        你好世界你好世界你好世界你好世界你好世界你好世界你好世界
+        你好世界你好世界你好世界你好世界你好世界你好世界你好世界
+        hello world
+    </p>
+    <ul>
+        <li>图一</li>
+        <li>图二</li>
+        <li>图三</li>
+    </ul>
+    <div id="div1">每一次和你分开，深深地被你打败，每一次放弃你的温柔痛苦难以释怀。每一次和你分开，每一次 kiss you goodbye，爱情的滋味此刻我终于最明白。</div>
+    <div id="div2">每一次和你分开，深深地被你打败，每一次放弃你的温柔痛苦难以释怀。每一次和你分开，每一次 kiss you goodbye，爱情的滋味此刻我终于最明白。</div>
+    <div id="div3">每一次和你分开，深深地被你打败，每一次放弃你的温柔痛苦难以释怀。每一次和你分开，每一次 kiss you goodbye，爱情的滋味此刻我终于最明白。</div>
+    <table>
+        <tr>
+            <td>原始图片</td>
+            <td>图片加入黑白效果</td>
+        </tr>
+        <tr>
+            <td><img src="img/2015-10-03-css-18.png"></td>
+        </tr>
+        <tr>
+            <td><img src="img/2015-10-03-css-18.png" alt="" style="filter: gray();"></td>
+        </tr>
+    </table>
+</body>
+</html>

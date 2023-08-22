@@ -1,0 +1,40 @@
+# 应用缓存，在 HTML5 中我们可以轻松构建一个离线（无网络状态）应用，只需要创建一个 cache manifest 缓存清单文件
+# 优势
+#   1、可配置需要缓存的资源；
+#   2、网络无连接应用仍可用；
+#   3、本地读取缓存资源，提升访问速度，增强用户体验；
+#   4、减少请求，缓解服务器负担。
+# cache manifest 缓存清单文件
+#   缓存清单文件中列出了浏览器缓存，以供离线访问的资源。推荐使用 .appcache 作为后缀名，另外还要添加 MIME 类型
+# 怎么写？
+#   1、顶行写 CACHE MANIFEST
+#   2、CACHE: 换行后指定我们需要缓存的静态资源，如 css、image、js 等
+#   3、NETWORK: 换行后指定需要在线访问的资源，可使用通配符（也就是不需要缓存、必须在网络下才能访问的资源）
+#   4、FALLBACK: 换行后填写，当被缓存的文件找不到时的备用资源（当访问不到某个资源时，自动由另外一个资源替换）
+# 如何使用？
+#   在需要应用缓存的页面的根元素（html）里，添加属性 manifest="xxx.appcache"。路径要正确
+CACHE MANIFEST
+CACHE:
+# 此部分写需要缓存的资源
+./img/loading.gif
+./img/724a141e9ffd4a519b9d582151f1c54d.png
+NETWORK:
+# 此部分填写需要有网络才可访问的资源，无网络则不访问
+.js/main.js
+FALLBACK
+# 当访问不到某个资源的情况下，自动由另一个资源替换
+./css/font-a.css ./css/font-awesome.min.css
+
+# 另一种格式
+CACHE MANIFEST
+# 要缓存的文件
+CACHE:
+    /img/loading.gif
+    /img/724a141e9ffd4a519b9d582151f1c54d.png
+# 指定必须联网才能访问的文件
+NETWORK:
+    /img/loading.gif
+# 当前页面无法访问回退的页面
+FALLBACK:
+    404.html
+
